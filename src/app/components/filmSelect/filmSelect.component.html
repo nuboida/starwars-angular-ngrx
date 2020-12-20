@@ -1,3 +1,12 @@
-<p>
-  filmSelect works!
-</p>
+<div class="filmSelect">
+  <select
+    name="select-film"
+    id="select-films"
+    required
+    >
+    <option value="" disabled selected>Select Starwats film...</option>
+    <option *ngFor="let film of films" value={{film.title}}>
+      {{film.title}}
+    </option>
+  </select>
+</div>

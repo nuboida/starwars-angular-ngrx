@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
   films$: Observable<Film[]> = this.store.pipe(select(getMovies));
   loaded$: Observable<boolean> = this.store.pipe(select(getLoaded));
   loading$: Observable<boolean> = this.store.pipe(select(getLoading));
-  errorMsg: Observable<string> = this.store.pipe(select(getErrorMessage));
+  errorMsg$: Observable<string> = this.store.pipe(select(getErrorMessage));
   constructor(private store: Store<appState>) { }
 
   ngOnInit() {

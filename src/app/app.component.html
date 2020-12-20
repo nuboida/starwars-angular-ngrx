@@ -3,11 +3,19 @@
     <h2>Starwars</h2>
   </header>
   <div class="app-body">
-    <div class="loading-center-absolute">
+    <div class="loading-center-absolute" *ngIf="(loading$ | async) as loading">
       <div class="object" id="object_one"></div>
       <div class="object" id="object_two"></div>
       <div class="object" id="object_three"></div>
       <div class="object" id="object_four"></div>
     </div>
+  </div>
+  <div class="app-body"
+    *ngIf="(loaded$ | async) as loaded"
+  >
+    <filmSelect
+      [films]="films$ | async"
+      [errorMsg]="errorMsg$ | async"
+    ></filmSelect>
   </div>
 </div>
