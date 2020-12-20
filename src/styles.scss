@@ -1,1 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./assets/sass/base/normalize";
+@import "./assets/sass/base/page";
+@import "./assets/sass/base/typography";
+
+//App Layout
+@import "./assets/sass/layout/header";

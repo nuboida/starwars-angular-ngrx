@@ -1,4 +1,13 @@
-<h2>Basic Request</h2>
-<button type="button" (click)="makeRequest()">Make Request</button>
-<div *ngIf="loading">loading...</div>
-<pre>{{data | json}}</pre>
+<div class="starwars">
+  <header class="header">
+    <h2>Starwars</h2>
+  </header>
+  <div class="app-body">
+    <div class="loading-center-absolute">
+      <div class="object" id="object_one"></div>
+      <div class="object" id="object_two"></div>
+      <div class="object" id="object_three"></div>
+      <div class="object" id="object_four"></div>
+    </div>
+  </div>
+</div>
