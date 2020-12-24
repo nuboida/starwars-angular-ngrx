@@ -1,47 +1,47 @@
 import { createReducer, on } from '@ngrx/store';
-import { appState } from '../models/app.state';
+import { createEntityAdapter, EntityAdapter } from '@ngrx/entity';
+
+import { fetchFilms, fetchFilmsFailure, fetchFilmsSuccess, selectFilmById } from './app.actions';
 import { Film } from '../models/film';
-import {
-  fetchFilms,
-  fetchFilmsSuccess,
-  fetchFilmsFailure
-} from './app.actions';
+import { appState } from '../models/app.state';
 
-const initialState: appState = {
-  loaded: false,
+export const adapter: EntityAdapter<Film> = createEntityAdapter<Film>({
+  selectId: (film: Film) => film.episode_id,
+  sortComparer: false,
+});
+
+export const initialState: appState = adapter.getInitialState({
   loading: false,
-  movies: [],
-  errorMessage: ''
-}
+  loaded: false,
+  errMessage: '',
+  selectedFilmId: null
+});
 
-const _filmsReducer = createReducer(
+const _FilmsReducer = createReducer(
   initialState,
   on(fetchFilms, (state) => {
     return {
       ...state,
-      loading: true,
+      loading: true
     }
   }),
-
   on(fetchFilmsSuccess, (state, { movies }) => {
-    return {
-      ...state,
-      loading: false,
-      loaded: true,
-      movies: [...movies]
-    }
+    return adapter.addMany(movies, { ...state, loading: false, loaded: true })
   }),
-
   on(fetchFilmsFailure, (state, { errorMsg }) => {
     return {
       ...state,
-      loading: false,
-      loaded: true,
-      errorMessage: errorMsg
+      errMessage: errorMsg
+    }
+  }),
+  on(selectFilmById, (state, { filmId }) => {
+    return {
+      ...state,
+      selectedFilmId: filmId
     }
   })
-)
+);
 
 export const FilmsReducer = (state, action) => {
-  return _filmsReducer(state, action)
+  return _FilmsReducer(state, action);
 }

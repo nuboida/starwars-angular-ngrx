@@ -11,11 +11,12 @@
     </div>
   </div>
   <div class="app-body"
-    *ngIf="(loaded$ | async) as loaded"
+  *ngIf="(loaded$ | async) as loaded"
   >
-    <filmSelect
-      [films]="films$ | async"
-      [errorMsg]="errorMsg$ | async"
-    ></filmSelect>
-  </div>
+  <filmSelect
+  [films]="(films$ | async)"
+  [errorMsg]="errorMsg$ | async"
+  (getFilm)="getFilmId($event)"
+  ></filmSelect>
+</div>
 </div>

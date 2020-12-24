@@ -1,8 +1,9 @@
+import { EntityState } from '@ngrx/entity';
 import { Film } from './film';
 
-export interface appState {
-  loaded: boolean;
+export interface appState extends EntityState<Film> {
   loading: boolean;
-  movies: Film[];
-  errorMessage: '';
+  loaded: boolean;
+  errMessage: string;
+  selectedFilmId: string;
 }

@@ -14,3 +14,8 @@ export const fetchFilmsFailure = createAction(
   '[App Component] Fetch Films Failed]',
   props<{ errorMsg: string }>()
 );
+
+export const selectFilmById = createAction(
+  '[App Component] get Select film',
+  props<{ filmId: string }>()
+);

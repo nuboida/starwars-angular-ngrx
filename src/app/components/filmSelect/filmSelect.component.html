@@ -3,9 +3,11 @@
     name="select-film"
     id="select-films"
     required
+    #selectedFilm
+    (change)="handleSelectChange(selectedFilm.value)"
     >
-    <option value="" disabled selected>Select Starwats film...</option>
-    <option *ngFor="let film of films" value={{film.title}}>
+    <option value="" disabled selected>Select Starwars film...</option>
+    <option *ngFor="let film of films" value={{film.episode_id}}>
       {{film.title}}
     </option>
   </select>
