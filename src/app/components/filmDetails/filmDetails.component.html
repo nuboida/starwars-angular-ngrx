@@ -1,0 +1,9 @@
+<div class="filmDetails" *ngIf="!film">
+  <h1>Starwars</h1>
+</div>
+<div class="filmDetails" *ngIf="film">
+  <h2>Starwars: <span>{{film.title}}</span></h2>
+  <marque [text]="film.opening_crawl"></marque>
+  <movieCharacters [charactersUrl]="film.characters">
+  </movieCharacters>
+</div>

@@ -1,0 +1,23 @@
+.marquee {
+  height: 96px;
+  width: 400px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+
+  p {
+    position: absolute;
+    transform: translateY(80px);
+    z-index: -1;
+    animation: scroll-up 30s linear infinite;
+  }
+  }
+
+  @keyframes scroll-up {
+  0% {
+    transform: translateY(80px);
+  }
+  100% {
+    transform: translateY(-270px);
+  }
+  }

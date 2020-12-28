@@ -1,0 +1,18 @@
+.filmDetails {
+	h1 {
+			color: rgba(255, 255, 0, 0.3);
+			text-align: center;
+			margin-top: 10rem;
+			font-size: 40px;
+	}
+	h2 {
+		text-align: center;
+		color: Yellow;
+		font-size: 22px;
+		box-shadow: 0px 0px 10px 32px black;
+
+		span {
+			font-size: 14px;
+		}
+	}
+}

@@ -18,5 +18,7 @@
   [errorMsg]="errorMsg$ | async"
   (getFilm)="getFilmId($event)"
   ></filmSelect>
+  <filmDetails  [film]="(film$ | async)">
+  </filmDetails>
 </div>
 </div>

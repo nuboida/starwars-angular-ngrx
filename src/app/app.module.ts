@@ -10,11 +10,19 @@ import { FilmsEffect } from './appStore/app.effects';
 
 import { AppComponent } from './app.component';
 import { FilmSelectComponent } from './components/filmSelect/filmSelect.component';
+import { FilmDetailsComponent } from './components/filmDetails/filmDetails.component';
+import { MarqueComponent } from './components/marque/marque.component';
+import { MovieCharactersComponent } from './components/movieCharacters/movieCharacters.component';
+import { CharactersComponent } from './components/characters/characters.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FilmSelectComponent
+    FilmSelectComponent,
+    FilmDetailsComponent,
+    MarqueComponent,
+    MovieCharactersComponent,
+    CharactersComponent
   ],
   imports: [
     BrowserModule,
