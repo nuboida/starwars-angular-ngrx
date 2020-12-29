@@ -16,21 +16,13 @@ export class MovieCharactersComponent implements OnInit, OnChanges {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    /*  from(this.charactersUrl).pipe(
-       mergeMap(url => this.http.get(url).pipe(
-         map((data: any) => data.data || {})
-       )),
-       toArray()
-     ).subscribe(xters => {
-       this.characters = xters
-     }) */
   }
 
   ngOnChanges(changes: SimpleChanges) {
     let currCharacters = changes.charactersUrl.currentValue;
     from(currCharacters).pipe(
       mergeMap((currUrl: string) => this.http.get(currUrl).pipe(
-        map((data: any) => data.data || {})
+        map((data: any) => data || {})
       )),
       toArray()
     ).subscribe(xters => {
