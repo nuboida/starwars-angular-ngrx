@@ -7,6 +7,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { FilmsReducer } from './appStore/app.reducer';
 import { FilmsEffect } from './appStore/app.effects';
+import { CharacterReducer } from './components/movieCharacters/characterStore/character.reducer';
 
 import { AppComponent } from './app.component';
 import { FilmSelectComponent } from './components/filmSelect/filmSelect.component';
@@ -28,7 +29,8 @@ import { CharactersComponent } from './components/characters/characters.componen
     BrowserModule,
     HttpClientModule,
     StoreModule.forRoot({
-      films: FilmsReducer
+      films: FilmsReducer,
+      characters: CharacterReducer
     }),
     StoreDevtoolsModule.instrument({
       name: 'Ngrx Starwars app'

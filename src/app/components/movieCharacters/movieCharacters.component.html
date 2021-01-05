@@ -1,1 +1,9 @@
-<characters [characters]="characters"></characters>
+<div class="load-characters">
+  <div class="load-center-absolute" *ngIf="loading$ | async">
+    <div class="circle" id="circle_one"></div>
+    <div class="circle" id="circle_two"></div>
+    <div class="circle" id="circle_three"></div>
+    <div class="circle" id="circle_four"></div>
+  </div>
+  <characters *ngIf="loaded$ | async" [characters]="characters$ | async"></characters>
+</div>
